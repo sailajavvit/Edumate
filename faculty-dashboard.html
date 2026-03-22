@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Dashboard - EduMate AI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="faculty-dashboard.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <button class="sidebar-toggle" id="sidebarToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="sidebar-header">
+    <div class="logo">
+      <i class="fas fa-chalkboard-user"></i>
+      <span>EduMate</span>
+    </div>
+    <p class="subtitle">Faculty Portal</p>
+  </div>
+
+  <div class="user-card">
+    <div class="user-avatar">
+      <i class="fas fa-user-circle"></i>
+    </div>
+    <div class="user-info">
+      <h3 id="facultyName">Loading...</h3>
+      <p class="user-status">Faculty Member</p>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item active" data-section="dashboard">
+      <i class="fas fa-home"></i>
+      <span>Dashboard</span>
+    </a>
+    <a href="#" class="nav-item" data-section="classes">
+      <i class="fas fa-chalkboard"></i>
+      <span>My Classes</span>
+      <span class="badge">3</span>
+    </a>
+    <a href="#" class="nav-item" data-section="students">
+      <i class="fas fa-users"></i>
+      <span>Students</span>
+      <span class="badge">45</span>
+    </a>
+    <a href="#" class="nav-item" data-section="assignments">
+      <i class="fas fa-file-alt"></i>
+      <span>Assignments</span>
+      <span class="badge">12</span>
+    </a>
+    <a href="#" class="nav-item" data-section="grades">
+      <i class="fas fa-chart-bar"></i>
+      <span>Grades & Analytics</span>
+    </a>
+    <a href="#" class="nav-item" data-section="submissions">
+      <i class="fas fa-inbox"></i>
+      <span>Submissions</span>
+      <span class="badge new">8</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="#" class="footer-link">
+      <i class="fas fa-cog"></i> Settings
+    </a>
+    <a href="index.html" class="footer-link logout">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 id="pageTitle">Dashboard</h1>
+    </div>
+
+    <div class="topbar-right">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search students, classes...">
+      </div>
+      <div class="notification-badge">
+        <i class="fas fa-bell"></i>
+        <span class="badge">5</span>
+      </div>
+      <div class="profile-menu">
+        <button class="profile-icon">
+          <i class="fas fa-user-circle"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD CONTENT -->
+  <div class="content">
+    <!-- STATS SECTION -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon students">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Total Students</p>
+          <h3 class="stat-value">145</h3>
+          <small>Across 3 classes</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon attendance">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Avg Attendance</p>
+          <h3 class="stat-value">88%</h3>
+          <small>This semester</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon assignments">
+          <i class="fas fa-tasks"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Pending Submissions</p>
+          <h3 class="stat-value">12</h3>
+          <small>8 overdue</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon performance">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Class Performance</p>
+          <h3 class="stat-value">7.8/10</h3>
+          <small>Above average</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN GRID -->
+    <div class="dashboard-grid">
+      <!-- POST OPPORTUNITY -->
+      <section class="card large-card">
+        <div class="card-header">
+          <h2><i class="fas fa-plus"></i> Post Announcement</h2>
+        </div>
+        <form class="post-form" id="postForm">
+          <input 
+            type="text" 
+            id="title" 
+            placeholder="Announcement Title..." 
+            required
+          >
+          <textarea 
+            id="desc" 
+            placeholder="Share updates, assignments, or opportunities..."
+            rows="4"
+            required
+          ></textarea>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-paper-plane"></i> Post
+            </button>
+            <button type="reset" class="btn-secondary">
+              <i class="fas fa-times"></i> Clear
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- RECENT SUBMISSIONS -->
+      <section class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-inbox"></i> Recent Submissions</h2>
+          <a href="#" class="view-all">View All</a>
+        </div>
+        <div class="submissions-list">
+          <div class="submission-item pending">
+            <div class="sub-info">
+              <div class="sub-name">John Smith</div>
+              <small>Assignment 2: Advanced Concepts</small>
+            </div>
+            <div class="sub-time">Just now</div>
+          </div>
+          <div class="submission-item">
+            <div class="sub-info">
+              <div class="sub-name">Sarah Johnson</div>
+              <small>Project: Data Analysis</small>
+            </div>
+            <div class="sub-time">2 hours ago</div>
+          </div>
+          <div class="submission-item pending">
+            <div class="sub-info">
+              <div class="sub-name">Mike Chen</div>
+              <small>Quiz: Chapter 5-6</small>
+            </div>
+            <div class="sub-time">5 hours ago</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLASS OVERVIEW -->
+      <section class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-chalkboard"></i> My Classes</h2>
+          <a href="#" class="view-all">3 Classes</a>
+        </div>
+        <div class="classes-list">
+          <div class="class-item">
+            <div class="class-name">CS101: Programming Basics</div>
+            <div class="class-stats">
+              <span><i class="fas fa-users"></i> 45 students</span>
+              <span><i class="fas fa-calendar"></i> MWF 10:00</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 65%"></div>
+            </div>
+            <small>65% Complete</small>
+          </div>
+          <div class="class-item">
+            <div class="class-name">CS201: Web Development</div>
+            <div class="class-stats">
+              <span><i class="fas fa-users"></i> 38 students</span>
+              <span><i class="fas fa-calendar"></i> TR 14:00</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 48%"></div>
+            </div>
+            <small>48% Complete</small>
+          </div>
+          <div class="class-item">
+            <div class="class-name">CS301: Data Structures</div>
+            <div class="class-stats">
+              <span><i class="fas fa-users"></i> 32 students</span>
+              <span><i class="fas fa-calendar"></i> MWF 15:00</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 72%"></div>
+            </div>
+            <small>72% Complete</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- ATTENDANCE TRENDS -->
+      <section class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-chart-bar"></i> Attendance Trends</h2>
+        </div>
+        <div class="attendance-chart">
+          <div class="chart-bar" style="height: 70%">
+            <span>Mon</span>
+          </div>
+          <div class="chart-bar" style="height: 85%">
+            <span>Tue</span>
+          </div>
+          <div class="chart-bar" style="height: 75%">
+            <span>Wed</span>
+          </div>
+          <div class="chart-bar" style="height: 80%">
+            <span>Thu</span>
+          </div>
+          <div class="chart-bar" style="height: 90%">
+            <span>Fri</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUICK ACTIONS -->
+      <section class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+        </div>
+        <div class="actions-grid">
+          <button class="action-btn">
+            <i class="fas fa-plus-circle"></i>
+            <span>Create Assignment</span>
+          </button>
+          <button class="action-btn">
+            <i class="fas fa-file-upload"></i>
+            <span>Upload Material</span>
+          </button>
+          <button class="action-btn">
+            <i class="fas fa-envelope"></i>
+            <span>Send Message</span>
+          </button>
+          <button class="action-btn">
+            <i class="fas fa-check-square"></i>
+            <span>Grade Submissions</span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2026 EduMate AI. All rights reserved.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="faculty.js"></script>
+</body>
+</html>

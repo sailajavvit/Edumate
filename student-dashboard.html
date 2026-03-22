@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - EduMate AI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="student-dashboard.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <button class="sidebar-toggle" id="sidebarToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="sidebar-header">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <span>EduMate</span>
+    </div>
+    <p class="subtitle">Student Portal</p>
+  </div>
+
+  <div class="user-card">
+    <div class="user-avatar">
+      <i class="fas fa-user-circle"></i>
+    </div>
+    <div class="user-info">
+      <h3 id="studentName">Loading...</h3>
+      <p class="user-status">Active Student</p>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item active" data-section="dashboard">
+      <i class="fas fa-home"></i>
+      <span>Dashboard</span>
+    </a>
+    <a href="#" class="nav-item" data-section="courses">
+      <i class="fas fa-book"></i>
+      <span>Courses</span>
+      <span class="badge">5</span>
+    </a>
+    <a href="#" class="nav-item" data-section="assignments">
+      <i class="fas fa-tasks"></i>
+      <span>Assignments</span>
+      <span class="badge">3</span>
+    </a>
+    <a href="#" class="nav-item" data-section="opportunities">
+      <i class="fas fa-briefcase"></i>
+      <span>Opportunities</span>
+      <span class="badge new">2</span>
+    </a>
+    <a href="#" class="nav-item" data-section="doubts">
+      <i class="fas fa-question-circle"></i>
+      <span>Q&A Forum</span>
+    </a>
+    <a href="#" class="nav-item" data-section="notifications">
+      <i class="fas fa-bell"></i>
+      <span>Notifications</span>
+      <span class="badge">4</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="#" class="footer-link">
+      <i class="fas fa-cog"></i> Settings
+    </a>
+    <a href="index.html" class="footer-link logout">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 id="pageTitle">Dashboard</h1>
+    </div>
+
+    <div class="topbar-right">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search courses, assignments...">
+      </div>
+      <div class="streak-badge">
+        <i class="fas fa-fire"></i>
+        <span>5 Day Streak</span>
+      </div>
+      <div class="profile-menu">
+        <button class="profile-icon">
+          <i class="fas fa-user-circle"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD CONTENT -->
+  <div class="content">
+    <!-- STATS SECTION -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon attendance">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Attendance</p>
+          <h3 class="stat-value">92%</h3>
+          <small>+2% this month</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon progress">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Learning Progress</p>
+          <h3 class="stat-value">68%</h3>
+          <small>Courses completed: 3/5</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon score">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Average Score</p>
+          <h3 class="stat-value">8.5/10</h3>
+          <small>Excellent performance</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon cert">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Certifications</p>
+          <h3 class="stat-value">2</h3>
+          <small>1 more in progress</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN GRID -->
+    <div class="dashboard-grid">
+      <!-- OPPORTUNITIES -->
+      <section class="card large-card">
+        <div class="card-header">
+          <h2><i class="fas fa-briefcase"></i> Recent Opportunities</h2>
+          <a href="#" class="view-all">View All →</a>
+        </div>
+        <div class="opportunities-list" id="opportunities">
+          <div class="opportunity-item">
+            <div class="opp-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="opp-info">
+              <h4>Summer Internship at Tech Company</h4>
+              <p>6-month internship with mentoring</p>
+              <span class="opp-meta">Posted 2 days ago</span>
+            </div>
+            <button class="apply-btn">Apply</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CURRENT COURSES -->
+      <section class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-book"></i> Current Courses</h2>
+          <a href="#" class="view-all">5 Courses</a>
+        </div>
+        <div class="courses-list">
+          <div class="course-item">
+            <div class="course-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+              </div>
+              <span>75%</span>
+            </div>
+            <div class="course-name">Web Development</div>
+          </div>
+          <div class="course-item">
+            <div class="course-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 60%"></div>
+              </div>
+              <span>60%</span>
+            </div>
+            <div class="course-name">Python Basics</div>
+          </div>
+          <div class="course-item">
+            <div class="course-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%"></div>
+              </div>
+              <span>90%</span>
+            </div>
+            <div class="course-name">UI/UX Design</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UPCOMING ASSIGNMENTS -->
+      <section class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-tasks"></i> Upcoming</h2>
+          <a href="#" class="view-all">3 Pending</a>
+        </div>
+        <div class="upcoming-list">
+          <div class="upcoming-item urgent">
+            <i class="fas fa-dot-circle"></i>
+            <div>
+              <h4>Project Submission</h4>
+              <small>Due in 2 days</small>
+            </div>
+          </div>
+          <div class="upcoming-item">
+            <i class="fas fa-dot-circle"></i>
+            <div>
+              <h4>Quiz Chapter 5</h4>
+              <small>Due in 5 days</small>
+            </div>
+          </div>
+          <div class="upcoming-item">
+            <i class="fas fa-dot-circle"></i>
+            <div>
+              <h4>Reading Assignment</h4>
+              <small>Due in 7 days</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-trophy"></i> Achievements</h2>
+        </div>
+        <div class="achievements-grid">
+          <div class="achievement unlocked" title="5 Day Streak">
+            <i class="fas fa-fire"></i>
+          </div>
+          <div class="achievement unlocked" title="Course Complete">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="achievement" title="Top Score">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="achievement" title="Perfect Attendance">
+            <i class="fas fa-calendar"></i>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2026 EduMate AI. All rights reserved.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="student.js"></script>
+</body>
+</html>
